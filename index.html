@@ -30,10 +30,35 @@
       </section>
 
       <img src="dice-5.png" alt="Playing dice" class="dice" />
-      <button class="btn btn--new">🔄 New game</button>
+      <button class="btn btn--new">🆕 New game</button>
       <button class="btn btn--roll">🎲 Roll dice</button>
       <button class="btn btn--hold">📥 Hold</button>
     </main>
+    <div class="modal hidden">
+      <button class="close-modal">&times;</button>
+      <h1>Rules📃</h1>
+      <ul class="list">
+        <li>Player 1 starts rolling the dice.🎲</li>
+        <li>
+          Player can continue rolling the dice untill the dice value is 1️⃣.
+        </li>
+        <li>
+          If dice rolls to 1 then the player will loose all the current point he
+          gathered on that round & the opposite player will roll the dice. 🙃
+        </li>
+        <li>
+          Player can gain the current point as final point at any time pressing
+          the HOLD button.⏸️
+        </li>
+        <li>Player with 100 points wins the match.🏆</li>
+      </ul>
+    </div>
+    <div class="overlay hidden"></div>
+
+    <div class="rule-div">
+      <button class="btn btn--rule">📃Instructions</button>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
     <script src="script.js"></script>
   </body>

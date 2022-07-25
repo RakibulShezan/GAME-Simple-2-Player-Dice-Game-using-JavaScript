@@ -12,9 +12,11 @@ const diceEl = document.querySelector('.dice');
 const btnNew = document.querySelector('.btn--new');
 const btnHold = document.querySelector('.btn--hold');
 const btnRoll = document.querySelector('.btn--roll');
+const btnRule = document.querySelector('.btn--rule');
+const btnClose = document.querySelector('.close-modal');
 
-const winner0 = document.querySelector('.winner--0')
-const winner1 = document.querySelector('.winner--1')
+const winner0 = document.querySelector('.winner--0');
+const winner1 = document.querySelector('.winner--1');
 
 let scores, currentScore, activePlayer, playing;
 // Initial  condition of the page
@@ -31,15 +33,14 @@ const init = function () {
   current1El.textContent = 0;
 
   diceEl.classList.add('hidden');
-  winner0.classList.add('hidden')
-  winner1.classList.add('hidden')
-  
+  winner0.classList.add('hidden');
+  winner1.classList.add('hidden');
+
   player0El.classList.remove('player--winner');
   player1El.classList.remove('player--winner');
 
   player0El.classList.add('player--active');
   player1El.classList.remove('player--active');
-
 };
 
 // Call the initialize function when the page loads
@@ -103,6 +104,7 @@ btnHold.addEventListener('click', function () {
       document
         .querySelector(`.winner--${activePlayer}`)
         .classList.remove('hidden');
+
       // Firework Animation
       confetti({
         spread: 200,
@@ -116,3 +118,20 @@ btnHold.addEventListener('click', function () {
 
 // Click on the NEW GAME Button
 btnNew.addEventListener('click', init);
+
+// Evenet handler for instructions
+
+const openModal = () => {
+  document.querySelector('.modal').classList.remove('hidden');
+  document.querySelector('.overlay').classList.remove('hidden');
+};
+
+const closeModal = () => {
+  document.querySelector('.modal').classList.add('hidden');
+  document.querySelector('.overlay').classList.add('hidden');
+};
+btnRule.addEventListener('click', openModal);
+
+btnClose.addEventListener('click', closeModal);
+
+document.querySelector('.overlay').addEventListener('click', closeModal);
