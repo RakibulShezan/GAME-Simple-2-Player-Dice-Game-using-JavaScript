@@ -13,6 +13,9 @@ const btnNew = document.querySelector('.btn--new');
 const btnHold = document.querySelector('.btn--hold');
 const btnRoll = document.querySelector('.btn--roll');
 
+const winner0 = document.querySelector('.winner--0')
+const winner1 = document.querySelector('.winner--1')
+
 let scores, currentScore, activePlayer, playing;
 // Initial  condition of the page
 const init = function () {
@@ -28,11 +31,15 @@ const init = function () {
   current1El.textContent = 0;
 
   diceEl.classList.add('hidden');
+  winner0.classList.add('hidden')
+  winner1.classList.add('hidden')
+  
   player0El.classList.remove('player--winner');
   player1El.classList.remove('player--winner');
 
   player0El.classList.add('player--active');
   player1El.classList.remove('player--active');
+
 };
 
 // Call the initialize function when the page loads
@@ -91,6 +98,16 @@ btnHold.addEventListener('click', function () {
       document
         .querySelector(`.player--${activePlayer}`)
         .classList.remove('player--active');
+
+      // Winning message
+      document
+        .querySelector(`.winner--${activePlayer}`)
+        .classList.remove('hidden');
+      // Firework Animation
+      confetti({
+        spread: 200,
+        particleCount: 400,
+      });
     } else {
       switchPlayer();
     }
