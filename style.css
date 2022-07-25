@@ -24,16 +24,26 @@ body {
 
 /* LAYOUT */
 main {
+  backdrop-filter: blur(200px);
+  background-color: rgba(255, 255, 255, 0.35);
+  border-radius: 9px;
+  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.25);
+  display: flex;
+  filter: blur();
+  height: 60rem;
+  overflow: hidden;
   position: relative;
   width: 100rem;
-  height: 60rem;
-  background-color: rgba(255, 255, 255, 0.35);
-  backdrop-filter: blur(200px);
-  filter: blur();
-  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.25);
-  border-radius: 9px;
-  overflow: hidden;
-  display: flex;
+}
+@media screen and (max-width: 768px) {
+  body {
+    height: auto;
+  }
+  main {
+    flex-direction: column;
+    height: 100vh;
+    width: 90vw;
+  }
 }
 
 .player {
@@ -43,6 +53,11 @@ main {
   flex-direction: column;
   align-items: center;
   transition: all 0.75s;
+}
+@media screen and (max-width: 768px) {
+  .player {
+    padding: 7rem;
+  }
 }
 
 /* ELEMENTS */
@@ -55,12 +70,22 @@ main {
   font-weight: 300;
   margin-bottom: 1rem;
 }
+@media screen and (max-width: 768px) {
+  .name {
+    margin-bottom: 0;
+  }
+}
 
 .score {
   font-size: 8rem;
   font-weight: 300;
   color: #c7365f;
   margin-bottom: auto;
+}
+@media screen and (max-width: 768px) {
+  .score {
+    margin-bottom: 0;
+  }
 }
 
 .player--active {
@@ -98,6 +123,16 @@ main {
 .current-score {
   font-size: 3.5rem;
 }
+@media screen and (max-width: 768px) {
+  .current {
+    width: 40%;
+    padding: 1rem;
+  }
+  .current-label {
+    font-size: 1.3rem;
+    margin-bottom: 0;
+  }
+}
 
 /* ABSOLUTE POSITIONED ELEMENTS */
 .btn {
@@ -122,6 +157,13 @@ main {
   border-radius: 50rem;
   box-shadow: 0 1.75rem 3.5rem rgba(0, 0, 0, 0.1);
 }
+@media screen and (max-width: 768px) {
+  /*   .btn {
+    font-size: 1.7rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  } */
+}
 
 .btn--rule {
   font-weight: 600;
@@ -129,6 +171,14 @@ main {
   padding: 0.7rem 1rem;
   left: 1rem;
   transform: translateY(-25rem);
+}
+
+@media screen and (max-width: 768px) {
+  .btn--rule {
+    left: 28%;
+    transform: translateY(0);
+    top: 1%;
+  }
 }
 .btn::first-letter {
   font-size: 2.4rem;
@@ -139,11 +189,48 @@ main {
 .btn--new {
   top: 4rem;
 }
+@media screen and (max-width: 768px) {
+  .btn--new {
+    top: auto;
+    bottom: 0;
+    padding: 2rem;
+  }
+}
+
 .btn--roll {
   top: 39.3rem;
 }
+@media screen and (max-width: 768px) {
+  .btn--roll {
+    font-size: 4rem;
+    left: 6rem;
+    top: 44%;
+    line-height: 0;
+    text-indent: -9999px;
+  }
+  .btn--roll::after {
+    content: '🎲';
+    text-indent: 0;
+    display: block;
+    line-height: initial; /* New content takes up original line height */
+  }
+  .btn::first-letter {
+    font-size: 2rem;
+    display: inline-block;
+    margin-right: 0.3rem;
+  }
+}
 .btn--hold {
   top: 46.1rem;
+}
+@media screen and (max-width: 768px) {
+  .btn--hold {
+    /* right: 9rem;
+    transform: translateX(100%); */
+    top: 44%;
+    left: 83%;
+    padding-top: 2rem;
+  }
 }
 
 .btn:active {
@@ -171,6 +258,13 @@ main {
   transform: translateX(-50%);
   height: 10rem;
   box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.2);
+}
+
+@media screen and (max-width: 768px) {
+  .dice {
+    height: 8rem;
+    top: 42%;
+  }
 }
 
 .player--winner {
@@ -205,6 +299,16 @@ main {
   box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
   z-index: 10;
 }
+@media screen and (max-width: 768px) {
+  .modal {
+    top: 0;
+    left: 7%;
+    width: 85%;
+    height: 100vh;
+    padding: 4rem;
+    transform: translate(0);
+  }
+}
 
 .overlay {
   position: absolute;
@@ -233,4 +337,16 @@ main {
   margin-left: 2rem;
 }
 
-
+@media screen and (max-width: 768px) {
+  .name {
+    font-size: 2rem;
+  }
+  .score {
+    font-size: 5rem;
+  }
+  .list {
+    letter-spacing: 0;
+    line-height: 3.8rem;
+    margin-left: 0;
+  }
+}
