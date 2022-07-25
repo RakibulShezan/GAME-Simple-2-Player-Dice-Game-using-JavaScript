@@ -13,16 +13,30 @@ const btnNew = document.querySelector('.btn--new');
 const btnHold = document.querySelector('.btn--hold');
 const btnRoll = document.querySelector('.btn--roll');
 
-// Initial Look of the page
-score0El.textContent = 0;
-score1El.textContent = 0;
+let scores, currentScore, activePlayer, playing;
+// Initial  condition of the page
+const init = function () {
+  scores = [0, 0];
+  currentScore = 0;
+  activePlayer = 0;
+  playing = true;
 
-diceEl.classList.add('hidden');
+  //   Initialize player scores
+  score0El.textContent = 0;
+  score1El.textContent = 0;
+  current0El.textContent = 0;
+  current1El.textContent = 0;
 
-const scores = [0, 0];
-let currentScore = 0;
-let activePlayer = 0;
-let playing = true;
+  diceEl.classList.add('hidden');
+  player0El.classList.remove('player--winner');
+  player1El.classList.remove('player--winner');
+
+  player0El.classList.add('player--active');
+  player1El.classList.remove('player--active');
+};
+
+// Call the initialize function when the page loads
+init();
 
 const switchPlayer = function () {
   // switch the current player to the oposition
@@ -82,3 +96,6 @@ btnHold.addEventListener('click', function () {
     }
   }
 });
+
+// Click on the NEW GAME Button
+btnNew.addEventListener('click', init);
