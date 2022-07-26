@@ -20,10 +20,12 @@ const winner1 = document.querySelector('.winner--1');
 
 let scores, currentScore, activePlayer, playing;
 // Initial  condition of the page
+let firstActive = 1;
 const init = function () {
   scores = [0, 0];
   currentScore = 0;
-  activePlayer = 0;
+  firstActive = firstActive === 1 ? 0 : 1;
+  activePlayer = firstActive;
   playing = true;
 
   //   Initialize player scores
@@ -39,8 +41,13 @@ const init = function () {
   player0El.classList.remove('player--winner');
   player1El.classList.remove('player--winner');
 
-  player0El.classList.add('player--active');
-  player1El.classList.remove('player--active');
+  if (activePlayer === 0) {
+    player0El.classList.add('player--active');
+    player1El.classList.remove('player--active');
+  } else {
+    player0El.classList.remove('player--active');
+    player1El.classList.add('player--active');
+  }
 };
 
 // Call the initialize function when the page loads
@@ -78,16 +85,16 @@ btnRoll.addEventListener('click', function () {
       document.querySelector(
         '.sprite'
       ).className = `dice sprite bg-dice_${dice}`;
-    }, 800);
-    //  Check If the dice is rolled to 1
-    if (dice !== 1) {
-      // Add dice to current score
-      currentScore += dice;
-      document.getElementById(`current--${activePlayer}`).textContent =
-        currentScore;
-    } else {
-      switchPlayer();
-    }
+      //  Check If the dice is rolled to 1
+      if (dice !== 6) {
+        // Add dice to current score
+        currentScore += dice;
+        document.getElementById(`current--${activePlayer}`).textContent =
+          currentScore;
+      } else {
+        switchPlayer();
+      }
+    }, 600);
   }
 });
 
@@ -100,7 +107,7 @@ btnHold.addEventListener('click', function () {
       scores[activePlayer];
 
     // Check if the player reaches to 100 score
-    if (scores[activePlayer] >= 20) {
+    if (scores[activePlayer] >= 100) {
       //Finish the game
       playing = false;
       diceEl.classList.add('hidden');
