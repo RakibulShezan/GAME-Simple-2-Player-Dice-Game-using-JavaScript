@@ -64,9 +64,11 @@ btnRoll.addEventListener('click', function () {
     const dice = Math.trunc(Math.random() * 6) + 1;
 
     //   Display the dice image matching the random generated dice value
-    diceEl.classList.remove('hidden');
+    /* diceEl.classList.remove('hidden');
     diceEl.src = `dice-${dice}.png`;
-
+ */
+    // Using sprite image to reduce the number of Http requests
+    document.querySelector('.sprite').className = `dice sprite bg-dice_${dice}`;
     //  Check If the dice is rolled to 1
     if (dice !== 1) {
       // Add dice to current score
