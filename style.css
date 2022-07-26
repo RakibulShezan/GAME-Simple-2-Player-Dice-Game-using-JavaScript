@@ -172,8 +172,9 @@ main {
   font-weight: 600;
   font-size: 1.5rem;
   padding: 0.7rem 1rem;
-  left: 1rem;
-  transform: translateY(-25rem);
+  left: 0.3%;
+  top: 10%;
+  transform: translateX(0);
 }
 
 @media screen and (max-width: 768px) {
@@ -240,11 +241,7 @@ main {
   transform: translate(-50%, 30px);
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
 }
-.rule-div .btn--rule:active {
-  transform: translateX(1rem);
-  /*   transform: translate(0, 0); */
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
-}
+
 
 .btn:focus {
   outline: none;
@@ -301,6 +298,7 @@ main {
   border-radius: 5px;
   box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
   z-index: 10;
+  opacity: 1;
 }
 @media screen and (max-width: 768px) {
   .modal {
