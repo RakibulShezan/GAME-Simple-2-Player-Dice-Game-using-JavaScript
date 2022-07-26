@@ -66,9 +66,18 @@ btnRoll.addEventListener('click', function () {
     //   Display the dice image matching the random generated dice value
     /* diceEl.classList.remove('hidden');
     diceEl.src = `dice-${dice}.png`;
+    
  */
-    // Using sprite image to reduce the number of Http requests
-    document.querySelector('.sprite').className = `dice sprite bg-dice_${dice}`;
+    document.querySelector('.loader').classList.remove('hidden');
+    document.querySelector('.sprite').classList.add('hidden');
+
+    setTimeout(() => {
+      document.querySelector('.loader').classList.add('hidden');
+      // Using sprite image to reduce the number of Http requests
+      document.querySelector(
+        '.sprite'
+      ).className = `dice sprite bg-dice_${dice}`;
+    }, 800);
     //  Check If the dice is rolled to 1
     if (dice !== 1) {
       // Add dice to current score
