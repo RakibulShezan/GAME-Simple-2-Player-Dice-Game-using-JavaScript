@@ -8,5 +8,10 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "cssnano": "^4.1.11",
+    "parcel-bundler": "^1.12.5",
+    "postcss": "^8.4.14"
+  }
 }
