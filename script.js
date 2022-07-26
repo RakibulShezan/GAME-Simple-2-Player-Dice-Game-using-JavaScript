@@ -68,6 +68,7 @@ btnRoll.addEventListener('click', function () {
     diceEl.src = `dice-${dice}.png`;
     
  */
+    // Dice rolling loading animation
     document.querySelector('.loader').classList.remove('hidden');
     document.querySelector('.sprite').classList.add('hidden');
 
